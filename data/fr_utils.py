@@ -12,6 +12,10 @@ from keras.layers.pooling import MaxPooling2D, AveragePooling2D
 import h5py
 import matplotlib.pyplot as plt
 
+from PIL import Image
+
+from mtcnn.mtcnn import MTCNN
+
 
 _FLOATX = 'float32'
 
@@ -195,3 +199,224 @@ def img_to_encoding(image_path, model):
     x_train = np.array([img])
     embedding = model.predict_on_batch(x_train)
     return embedding
+def extract_face(filename, required_size=(160, 160)):
+	# load image from file
+	image = Image.open(filename)
+	# convert to RGB, if needed
+	image = image.convert('RGB')
+	# convert to array
+	pixels = np.asarray(image)
+	# create the detector, using default weights
+	detector = MTCNN()
+	# detect faces in the image
+	results = detector.detect_faces(pixels)
+	# extract the bounding box from the first face
+	x1, y1, width, height = results[0]['box']
+	# bug fix
+	x1, y1 = abs(x1), abs(y1)
+	x2, y2 = x1 + width, y1 + height
+	# extract the face
+	face = pixels[y1:y2, x1:x2]
+	# resize pixels to the model size
+	image = Image.fromarray(face)
+	image = image.resize(required_size)
+	face_array = np.asarray(image)
+	return face_array
+
+def prepare_data():
+	# specify folder to plot
+	os.mkdir('./train')
+	os.mkdir('./train/Mike/')
+	folder = './image/Mike/'
+	path1 = './train/Mike/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Mike' + str(i) + '.png')
+
+		i += 1
+	os.mkdir('./train/Gus/')
+	folder = './image/Gus/'
+	path1 = './train/Gus/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Gus' + str(i) + '.png')
+
+		i += 1
+
+
+	os.mkdir('./train/Hank/')
+	folder = './image/Hank/'
+	path1 = './train/Hank/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Hank' + str(i) + '.png')
+
+		i += 1
+
+	os.mkdir('./train/Jesse/')
+	folder = './image/Jesse/'
+	path1 = './train/Jesse/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Jesse' + str(i) + '.png')
+
+		i += 1
+
+	os.mkdir('./train/Lydia/')
+	folder = './image/Lydia/'
+	path1 = './train/Lydia/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Lydia' + str(i) + '.png')
+
+		i += 1
+
+	os.mkdir('./train/Marie/')
+	folder = './image/Marie/'
+	path1 = './train/Marie/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Marie' + str(i) + '.png')
+
+		i += 1
+
+	os.mkdir('./train/Saul/')
+	folder = './image/Saul/'
+	path1 = './train/Saul/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Saul' + str(i) + '.png')
+
+		i += 1
+	os.mkdir('./train/Skyler/')
+	folder = './image/Skyler/'
+	path1 = './train/Skyler/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Skyler' + str(i) + '.png')
+
+		i += 1
+
+	os.mkdir('./train/Todd/')
+	folder = './image/Todd/'
+	path1 = './train/Todd/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Todd' + str(i) + '.png')
+
+		i += 1
+
+	os.mkdir('./train/Walter jr/')
+	folder = './image/Walter jr/'
+	path1 = './train/Walter jr/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Walter jr' + str(i) + '.png')
+
+		i += 1
+
+	os.mkdir('./train/Walter white/')
+	folder = './image/Walter white/'
+	path1 = './train/Walter white/'
+
+	i = 1
+	# enumerate files
+	for filename in listdir(folder):
+		# path
+		path = folder + filename
+		# get face
+		face = extract_face(path)
+
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path1 + 'Walter white' + str(i) + '.png')
+
+		i += 1
