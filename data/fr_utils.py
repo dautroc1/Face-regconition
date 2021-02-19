@@ -11,7 +11,7 @@ from keras.layers.normalization import BatchNormalization
 from keras.layers.pooling import MaxPooling2D, AveragePooling2D
 import h5py
 import matplotlib.pyplot as plt
-
+import matplotlib.image as mpimg
 from PIL import Image
 
 from mtcnn.mtcnn import MTCNN
@@ -232,7 +232,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -248,7 +248,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -284,7 +284,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -302,7 +302,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -320,7 +320,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -338,7 +338,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -355,7 +355,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -373,7 +373,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -391,7 +391,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -409,7 +409,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
@@ -420,3 +420,20 @@ def prepare_data():
 		img.save(path1 + 'Walter white' + str(i) + '.png')
 
 		i += 1
+
+def show_data():
+    folder = './train/Walter white'
+    i = 1
+    # enumerate files
+    for filename in listdir(folder):
+        # path
+        path = folder + filename
+        # get face
+        img = mpimg.imread(path)
+
+        # plot
+        plt.subplot(2, 7, i)
+        plt.axis('off')
+        plt.imshow(face)
+        i += 1
+    plt.show()
