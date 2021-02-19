@@ -267,7 +267,7 @@ def prepare_data():
 
 	i = 1
 	# enumerate files
-	for filename in listdir(folder):
+	for filename in os.listdir(folder):
 		# path
 		path = folder + filename
 		# get face
