@@ -239,6 +239,7 @@ def prepare_data():
 		face = extract_face(path)
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Mike' + str(i) + '.png')
 
 		i += 1
@@ -256,6 +257,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Gus' + str(i) + '.png')
 
 		i += 1
@@ -274,6 +276,7 @@ def prepare_data():
 		face = extract_face(path)
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Hank' + str(i) + '.png')
 
 		i += 1
@@ -292,6 +295,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Jesse' + str(i) + '.png')
 
 		i += 1
@@ -310,6 +314,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Lydia' + str(i) + '.png')
 
 		i += 1
@@ -328,6 +333,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Marie' + str(i) + '.png')
 
 		i += 1
@@ -346,6 +352,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Saul' + str(i) + '.png')
 
 		i += 1
@@ -363,6 +370,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Skyler' + str(i) + '.png')
 
 		i += 1
@@ -381,6 +389,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Todd' + str(i) + '.png')
 
 		i += 1
@@ -399,6 +408,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Walter jr' + str(i) + '.png')
 
 		i += 1
@@ -417,6 +427,7 @@ def prepare_data():
 
 		# plot
 		img = Image.fromarray(face, 'RGB')
+		img = img.resize((96,96))
 		img.save(path1 + 'Walter white' + str(i) + '.png')
 
 		i += 1
