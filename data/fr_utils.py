@@ -448,3 +448,15 @@ def show_data():
         plt.imshow(face)
         i += 1
     plt.show()
+def testmodel():
+	folder = "test/"
+
+	
+	for filename in os.listdir(folder):
+		# path
+		path = folder + filename
+		face = extract_face(path,(96,96))
+		# plot
+		img = Image.fromarray(face, 'RGB')
+		img.save(path, "JPEG", optimize=True)
+		who_is_it(path, database, FRmodel)
