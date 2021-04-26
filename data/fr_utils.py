@@ -202,6 +202,7 @@ def img_to_encoding(image_path, model):
 def extract_face(filename, required_size=(160, 160)):
 	# load image from file
 	image = Image.open(filename)
+	print(filename)
 	# convert to RGB, if needed
 	image = image.convert('RGB')
 	# convert to array
